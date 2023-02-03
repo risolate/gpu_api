@@ -20,7 +20,7 @@ class GenerationModel:
         self.tokenizer = AutoTokenizer.from_pretrained("beomi/KcT5-dev")
 
     def purification(self, word):
-        inputs = self.tokenizer([word], max_length=200)
+        inputs = self.tokenizer([word], max_length=300,truncation=True)
         summary_ids = self.model.generate(
             torch.tensor(inputs["input_ids"]).to(self.device),
             max_length=torch.tensor(inputs["input_ids"]).size(-1) * 2,
