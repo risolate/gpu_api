@@ -13,7 +13,7 @@ class Hatespeech(BaseModel):
 class GenerationModel:
     def __init__(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        model = T5ForConditionalGeneration.from_pretrained("risolate/kcT5-purificate")
+        model = T5ForConditionalGeneration.from_pretrained("happy06/KcT5-purificate")
         model.eval()
         model.to(self.device)
         self.model = model
