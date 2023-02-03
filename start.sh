@@ -1,3 +1,5 @@
+#!/bin/bash
+
 poetry shell
 poetry install
 python3 predownload.py
