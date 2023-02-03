@@ -13,9 +13,7 @@ class Hatespeech(BaseModel):
 class GenerationModel:
     def __init__(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        model = T5ForConditionalGeneration.from_pretrained("beomi/KcT5-dev", from_flax=True)
-        # model.load_state_dict("./app_gpu/assets/kcT5_reward_prompt_pair_v1.pt")
-        model.load_state_dict(torch.load("../finalproject/generation/results/kcT5_reward_prompt_pair_v1.pt"))
+        model = T5ForConditionalGeneration.from_pretrained("risolate/kcT5-purificate")
         model.eval()
         model.to(self.device)
         self.model = model
